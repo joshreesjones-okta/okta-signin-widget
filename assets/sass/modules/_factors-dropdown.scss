@@ -57,6 +57,15 @@
       }
     }
 
+    .option-disabled {
+      opacity: 0.6;
+      text-shadow: none;
+    }
+
+    .option-disabled:hover {
+      cursor: default;
+    }
+
     .dropdown-list-title {
       text-align: center;
 

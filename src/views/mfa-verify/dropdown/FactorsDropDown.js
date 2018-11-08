@@ -40,6 +40,10 @@ function (Okta, FactorsDropDownOptions) {
       'click .dropdown-disabled': function (e) {
         e.preventDefault();
         e.stopPropagation();
+      },
+      'click .option-disabled': function(e) {
+        e.preventDefault();
+        e.stopPropagation();
       }
     },
     initialize: function () {

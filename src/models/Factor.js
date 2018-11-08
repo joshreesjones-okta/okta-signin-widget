@@ -341,8 +341,10 @@ function (Okta, Q, factorUtil, Util, Errors, BaseLoginModel) {
     // Also, will need to add priority - i.e. if they do not have a last used
     // factor, should try Okta Verify, then Okta SMS, etc.
     getDefaultFactor: function () {
-      var factor = _.pick(this.lastUsedFactor, 'factorType', 'provider');
-      return this.findWhere(factor);
+      var factor = _.pick(this.lastUsedFactor, 'factorType', 'provider', 'disabled');
+      return !factor.disabled
+        ? this.findWhere(factor)
+        : this.filter(function(factor) { return !factor.attributes.disabled; })[0];
     },
 
     getFirstUnenrolledRequiredFactor: function () {

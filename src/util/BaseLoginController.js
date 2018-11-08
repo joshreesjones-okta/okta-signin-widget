@@ -97,7 +97,6 @@ define(['okta', 'q'], function (Okta, Q) {
       button.toggleClass('link-button-disabled', state).prop('disabled', state);
     },
 
-
     postRenderAnimation: function() {
       // Event triggered after a page is rendered along with the classname to identify the page
       this.trigger('pageRendered', {page: this.className});

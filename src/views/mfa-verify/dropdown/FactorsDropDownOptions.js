@@ -145,8 +145,17 @@ define(['okta', 'util/RouterUtil'], function (Okta, RouterUtil) {
       title: function () {
         return this.model.get('factorLabel');
       },
+      subtitle: function() {
+        return this.model.get('disabled') ? this.model.get('disabledText') : '';
+      },
       action: function () {
-        action.call(this, this.model);
+        if (!this.model.get('disabled')) action.call(this, this.model);
+      },
+      className: function () {
+        return this.model.get('disabled') ? 'option-disabled' : '';
+      },
+      enabled: function() {
+        return this.model.get('disabled');
       }
     },
 
